@@ -1,4 +1,4 @@
-###Searching through the binary tree
+Searching through the binary tree
 
 1. preorder
 2. inorder
