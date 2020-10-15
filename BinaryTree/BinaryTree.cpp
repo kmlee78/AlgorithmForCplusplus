@@ -2,15 +2,20 @@
 
 using namespace std;
 
-int number = 15;            //트리 전체 크기 15로 상정
+/*트리 전체 크기 
+  15로 배정*/
+int number = 15;            
 
 typedef struct node* tree;
 typedef struct node{
     int data;
     tree left, right;
 }node;
-
-void preorder(tree ptr){        //자신 탐색 -> 왼쪽 자식 탐색 -> 오른쪽 자식 탐색
+/*preorder
+  자신 탐색 ->
+  왼쪽 자식 탐색 ->
+  오른쪽 자식 탐색*/
+void preorder(tree ptr){        
     if(ptr)
     {
         cout << ptr->data << " ";
@@ -18,8 +23,11 @@ void preorder(tree ptr){        //자신 탐색 -> 왼쪽 자식 탐색 -> 오�
         preorder(ptr->right);
     }
 }
-
-void inorder(tree ptr){         //왼쪽 자식 탐색 -> 자신 탐색 -> 오른쪽 자식 탐색
+/*inorder
+  왼쪽 자식 탐색 ->
+  자신 탐색 ->
+  오른쪽 자식 탐색*/
+void inorder(tree ptr){         
     if(ptr)
     {
         inorder(ptr->left);
@@ -27,37 +35,44 @@ void inorder(tree ptr){         //왼쪽 자식 탐색 -> 자신 탐색 -> 오�
         inorder(ptr->right);
     }
 }
-
-void postorder(tree ptr){       //왼쪽 자식 탐색 -> 오른쪽 자식 탐색 -> 자신 탐색
+/*postorder
+  왼쪽 자식 탐색 ->
+  오른쪽 자식 탐색 ->
+  자신 탐색*/
+void postorder(tree ptr){       
     if(ptr)
     {
         postorder(ptr->left);
         postorder(ptr->right);
-        cout << ptr->right << " ";
+        cout << ptr->data << " ";
     }
 }
 
 int main(){
-    node nodes[number+1];
+    node nodes[number];
 
-    for(int a = 1; a <= number; a++)        //data 입력해주기
+    //data 입력해주기
+    for(int a = 0; a < number; a++)        
     {
         nodes[a].data = a;
         nodes[a].left = NULL;
         nodes[a].right = NULL;
     }
-    for(int b = 1; b <= number; b++)        //연결해주기
+    //연결해주기
+    for(int b = 1; b < number; b++)        
     {
         if(b%2 == 0){
-            nodes[b/2].left = &nodes[b];
+            nodes[(b-1)/2].right = &nodes[b];
         }else{
-            nodes[b/2].right = &nodes[b];
+            nodes[b/2].left = &nodes[b];
         }
     }
-
-    preorder(&nodes[1]);
-    inorder(&nodes[1]);
-    postorder(&nodes[1]);
+     //root인 0부터 탐색 시작
+    preorder(&nodes[0]);               
+    cout << endl;
+    inorder(&nodes[0]);
+    cout << endl;
+    postorder(&nodes[0]);
 
     return 0;
 }
