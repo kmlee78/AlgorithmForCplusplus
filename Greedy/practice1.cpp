@@ -18,8 +18,8 @@ int main(){
     int lastNum = guild[N-1];
     int index = N-1;
 
-    /*guild 벡터의 맨 마지막에서 부터 각 자리에 해당하는
-      숫자 만큼 인덱스 이동, 이동 마다 answer 하나씩 증가*/  
+    /*guild 벡터의 맨 마지막에서부터 각 자리에 해당하는
+      숫자 만큼 인덱스 이동. 이동 마다 answer 하나씩 증가*/  
     while(1){
         index -= lastNum;
         if(index >= 0){
@@ -32,6 +32,7 @@ int main(){
             break;
         }
     }
+
     cout << answer << endl;
     return 0;
 }
