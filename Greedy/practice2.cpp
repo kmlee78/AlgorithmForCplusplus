@@ -11,10 +11,10 @@ int main(){
     int answer = s[0] - '0';
     int length = s.length();
 
-    /*answer가 0 이거나 다음 문자열이 0일 때만 더하기
-      그 외에는 전부 곱하기*/
+    /*answer가 1 이하 이거나 다음 문자열이 1 이하일 
+      때만 더하기 그 외에는 전부 곱하기*/
     for(int a = 1; a < length; a++){
-        if(s[a] == '0' || answer == 0){
+        if(s[a]-'0' <= 1 || answer <= 1){
             answer += s[a] - '0';
         }else{
             answer *= s[a] - '0';
