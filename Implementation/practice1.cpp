@@ -17,4 +17,5 @@ int main(){
     }else{
         cout << "READY" << endl;
     }
+    return 0;
 }
