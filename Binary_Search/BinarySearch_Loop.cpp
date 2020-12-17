@@ -4,17 +4,14 @@
 using namespace std;
 
 int search(int target, vector<int>& array, int start, int end){
-    int mid = (start + end) / 2;
-    while(array[mid] != target){
-        mid = (start + end) / 2;
-        if(start > end) return -1;
-        if(target > array[mid]){
-            start = mid + 1;
-        }else{
-            end = mid - 1;
-        }
+    while(start <= end){
+        int mid = (start + end) / 2;
+        
+        if (array[mid] == target) return mid;
+        else if (array[mid] > target) end = mid - 1;
+        else start = mid + 1; 
     }
-    return mid;
+    return -1;
 }
 
 int main(){
