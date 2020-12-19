@@ -4,7 +4,7 @@ using namespace std;
 
 int db[30001];
 
-/*점화식: a[i] = min(a[i-1], a[i/2], a[i/3], a[i/5]) + 1 */
+/*점화식: a[i] = min(a[i-1], a[i/2], a[i/3], a[i/5]) + 1*/
 int main(){
     int x;
     cin >> x;
